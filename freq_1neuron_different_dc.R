@@ -81,7 +81,8 @@ data_3 = data.frame(n_data, freq3)
 ggplot() + geom_line(data=data_1, aes(n_data, freq1), colour= 'red') + geom_point(data=data_1, aes(n_data, freq1)) +
   geom_line(data=data_2, aes(n_data, freq2), colour= 'green') + geom_point(data=data_2, aes(n_data, freq2)) +
   geom_line(data=data_3, aes(n_data, freq3), colour= 'blue') + geom_point(data=data_3, aes(n_data, freq3)) +
-  labs(x="fValue", y = "Frequency [Hz]")
+  labs(x="fValue", y = "Frequency [Hz]") +
+  theme(plot.title = element_text(hjust = 0.5)) 
 
 
 
