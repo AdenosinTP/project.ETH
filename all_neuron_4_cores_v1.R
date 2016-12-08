@@ -75,7 +75,7 @@ ggplot(df, aes(Var2, value, group=factor(Var1))) + geom_line(aes(color=factor(Va
   labs(x="fValue", y = "Frequency [Hz]") +
   labs(title = "Core 0") + theme(plot.title = element_text(hjust = 0.5, size=rel(2)))
 
-ggsave("all_neurons_freq_core_0.pdf", plot = last_plot())
+ggsave("all_neurons_freq_core_0.png", plot = last_plot())
 
 
 
@@ -119,7 +119,7 @@ ggplot(df, aes(Var2, value, group=factor(Var1))) + geom_line(aes(color=factor(Va
   labs(x="fValue", y = "Frequency [Hz]") +
   labs(title = "Core 1") + theme(plot.title = element_text(hjust = 0.5, size=rel(2)))
 
-ggsave("all_neurons_freq_core_1.pdf", plot = last_plot())
+ggsave("all_neurons_freq_core_1.png", plot = last_plot())
 
 
 
@@ -163,7 +163,7 @@ ggplot(df, aes(Var2, value, group=factor(Var1))) + geom_line(aes(color=factor(Va
   labs(x="fValue", y = "Frequency [Hz]") +
   labs(title = "Core 2") + theme(plot.title = element_text(hjust = 0.5, size=rel(2)))
 
-ggsave("all_neurons_freq_core_2.pdf", plot = last_plot())
+ggsave("all_neurons_freq_core_2.png", plot = last_plot())
 
 
 
@@ -207,7 +207,7 @@ ggplot(df, aes(Var2, value, group=factor(Var1))) + geom_line(aes(color=factor(Va
   labs(x="fValue", y = "Frequency [Hz]") +
   labs(title = "Core 3") + theme(plot.title = element_text(hjust = 0.5, size=rel(2)))
 
-ggsave("all_neurons_freq_core_3.pdf", plot = last_plot())
+ggsave("all_neurons_freq_core_3.png", plot = last_plot())
 
 
 

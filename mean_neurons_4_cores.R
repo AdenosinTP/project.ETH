@@ -50,10 +50,10 @@ df = cbind(df, data_n=c(1:8)*32-1) # number of files you are using, in my case 8
 
 ggplot() + geom_line(data=df, aes(data_n, mean_freq)) +
   geom_ribbon(data=df, aes(data_n, ymin=lwr, ymax=upr), alpha=0.3, inherit.aes = T) +
-  labs(x="fValue", y = "Mean frequency [Hz]")
-labs(title = "Core 0") + theme(plot.title = element_text(hjust = 0.5, size=rel(2)))
+  labs(x="fValue", y = "Mean frequency [Hz]") +
+  labs(title = "Core 0") + theme(plot.title = element_text(hjust = 0.5, size=rel(2)))
 
-ggsave("mean_neurons_freq_core_0.pdf", plot = last_plot())
+ggsave("mean_neurons_freq_core_0.png", plot = last_plot())
 
 
 
@@ -94,10 +94,10 @@ df = cbind(df, data_n=c(1:8)*32-1) # number of files you are using, in my case 8
 
 ggplot() + geom_line(data=df, aes(data_n, mean_freq)) +
   geom_ribbon(data=df, aes(data_n, ymin=lwr, ymax=upr), alpha=0.3, inherit.aes = T) +
-  labs(x="fValue", y = "Mean frequency [Hz]")
-labs(title = "Core 1") + theme(plot.title = element_text(hjust = 0.5, size=rel(2)))
+  labs(x="fValue", y = "Mean frequency [Hz]") +
+  labs(title = "Core 1") + theme(plot.title = element_text(hjust = 0.5, size=rel(2)))
 
-ggsave("mean_neurons_freq_core_1.pdf", plot = last_plot())
+ggsave("mean_neurons_freq_core_1.png", plot = last_plot())
 
 
 
@@ -140,10 +140,10 @@ df = cbind(df, data_n=c(1:8)*32-1) # number of files you are using, in my case 8
 
 ggplot() + geom_line(data=df, aes(data_n, mean_freq)) +
   geom_ribbon(data=df, aes(data_n, ymin=lwr, ymax=upr), alpha=0.3, inherit.aes = T) +
-  labs(x="fValue", y = "Mean frequency [Hz]")
-labs(title = "Core 2") + theme(plot.title = element_text(hjust = 0.5, size=rel(2)))
+  labs(x="fValue", y = "Mean frequency [Hz]") +
+  labs(title = "Core 2") + theme(plot.title = element_text(hjust = 0.5, size=rel(2)))
 
-ggsave("mean_neurons_freq_core_2.pdf", plot = last_plot())
+ggsave("mean_neurons_freq_core_2.png", plot = last_plot())
 
 
 
@@ -185,7 +185,9 @@ df = cbind(df, data_n=c(1:8)*32-1) # number of files you are using, in my case 8
 
 ggplot() + geom_line(data=df, aes(data_n, mean_freq)) +
   geom_ribbon(data=df, aes(data_n, ymin=lwr, ymax=upr), alpha=0.3, inherit.aes = T) +
-  labs(x="fValue", y = "Mean frequency [Hz]")
-labs(title = "Core 3") + theme(plot.title = element_text(hjust = 0.5, size=rel(2)))
+  labs(x="fValue", y = "Mean frequency [Hz]") +
+  labs(title = "Core 3") + theme(plot.title = element_text(hjust = 0.5, size=rel(2)))
 
-ggsave("mean_neurons_freq_core_3.pdf", plot = last_plot())
+ggsave("mean_neurons_freq_core_3.png", plot = last_plot())
+
+
