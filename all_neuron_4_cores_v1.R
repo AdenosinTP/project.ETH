@@ -26,6 +26,8 @@ library(ggplot2)
 library(plyr)
 library(reshape2)
 
+start.time <- Sys.time()
+
 # Reading all the files *.txt
 files = list.files( pattern = "*.txt")
 n = length(files)
@@ -34,10 +36,16 @@ n = length(files)
 # the frequency for each current change
 
 
+# ===========================================================================
+# ===========================================================================
+# //////////////////////////////   CHIP 2    ////////////////////////////////
+# ===========================================================================
+# ===========================================================================
 
 
 
-# /////////////////////////// CORE 0  /////////////////////////////////
+# //////////////////// CORE 0  ///////////////////////
+# ====================================================
 
 
 frequencies = sapply(files, function(x) {
@@ -49,7 +57,7 @@ frequencies = sapply(files, function(x) {
   freq = rep(NA, 256)
 
   for (i in 0:255) {
-  neuron_time =  file$time[file$core_id==0 & file$neuron_id==i]
+  neuron_time =  file$time[file$chip_id==4 & file$core_id==0 & file$neuron_id==i]
   spikes = length(neuron_time)
   min = min(neuron_time)
   max = max(neuron_time)
@@ -67,7 +75,6 @@ colnames(frequencies) = paste("",(1:8)*32-1, sep="")
 
 
 df = melt(frequencies)
-names(df)
 
 # plottig the frequencies changes for 256 neurons
 ggplot(df, aes(Var2, value, group=factor(Var1))) + geom_line(aes(color=factor(Var1))) + 
@@ -75,13 +82,15 @@ ggplot(df, aes(Var2, value, group=factor(Var1))) + geom_line(aes(color=factor(Va
   labs(x="fValue", y = "Frequency [Hz]") +
   labs(title = "Core 0") + theme(plot.title = element_text(hjust = 0.5, size=rel(2)))
 
-ggsave("all_neurons_freq_core_0.png", plot = last_plot())
+ggsave("neurons_core_0.png", plot = last_plot())
 
 
 
 
 
-# /////////////////////////// CORE 1  /////////////////////////////////
+
+# //////////////////// CORE 1  ///////////////////////
+# ====================================================
 
 
 frequencies = sapply(files, function(x) {
@@ -93,7 +102,7 @@ frequencies = sapply(files, function(x) {
   freq = rep(NA, 256)
   
   for (i in 0:255) {
-    neuron_time =  file$time[file$core_id==1 & file$neuron_id==i]
+    neuron_time =  file$time[file$chip_id==4 & file$core_id==1 & file$neuron_id==i]
     spikes = length(neuron_time)
     min = min(neuron_time)
     max = max(neuron_time)
@@ -111,7 +120,7 @@ colnames(frequencies) = paste("",(1:8)*32-1, sep="")
 
 
 df = melt(frequencies)
-names(df)
+
 
 # plotting the frequencies changes for 256 neurons
 ggplot(df, aes(Var2, value, group=factor(Var1))) + geom_line(aes(color=factor(Var1))) + 
@@ -125,7 +134,9 @@ ggsave("all_neurons_freq_core_1.png", plot = last_plot())
 
 
 
-# /////////////////////////// CORE 2  /////////////////////////////////
+
+# //////////////////// CORE 2  ///////////////////////
+# ====================================================
 
 
 frequencies = sapply(files, function(x) {
@@ -137,7 +148,7 @@ frequencies = sapply(files, function(x) {
   freq = rep(NA, 256)
   
   for (i in 0:255) {
-    neuron_time =  file$time[file$core_id==2 & file$neuron_id==i]
+    neuron_time =  file$time[file$chip_id==4 & file$core_id==2 & file$neuron_id==i]
     spikes = length(neuron_time)
     min = min(neuron_time)
     max = max(neuron_time)
@@ -169,7 +180,9 @@ ggsave("all_neurons_freq_core_2.png", plot = last_plot())
 
 
 
-# /////////////////////////// CORE 3  /////////////////////////////////
+
+# //////////////////// CORE 3  ///////////////////////
+# ====================================================
 
 
 frequencies = sapply(files, function(x) {
@@ -181,7 +194,7 @@ frequencies = sapply(files, function(x) {
   freq = rep(NA, 256)
   
   for (i in 0:255) {
-    neuron_time =  file$time[file$core_id==3 & file$neuron_id==i]
+    neuron_time =  file$time[file$chip_id==4 & file$core_id==3 & file$neuron_id==i]
     spikes = length(neuron_time)
     min = min(neuron_time)
     max = max(neuron_time)
@@ -199,7 +212,6 @@ colnames(frequencies) = paste("",(1:8)*32-1, sep="")
 
 
 df = melt(frequencies)
-names(df)
 
 # plotting the frequencies changes for 256 neurons
 ggplot(df, aes(Var2, value, group=factor(Var1))) + geom_line(aes(color=factor(Var1))) + 
@@ -209,8 +221,9 @@ ggplot(df, aes(Var2, value, group=factor(Var1))) + geom_line(aes(color=factor(Va
 
 ggsave("all_neurons_freq_core_3.png", plot = last_plot())
 
-
-
+end.time <- Sys.time()
+time.taken <- end.time - start.time
+time.taken
 
 
 

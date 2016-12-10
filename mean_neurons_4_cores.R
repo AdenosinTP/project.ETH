@@ -1,4 +1,19 @@
+#           
+#           
+#           /// Visualisation of the frequencies'mean of Dynap-se Neuromorphic
+#                   chip's 256 neurons (single core) related to injected current variation ///
+# 
+# This script can analyze the data extracted from the .aedat files recorded with
+# cAER, by using the python script found in the repository 
+# (https://github.com/AdenosinTP/project_ETH), and show the frequency of each 
+# neuron for an increasing current (in this case DC coarseValue was costant and
+# changes were in fineValue with the rest of the parameters unchanged from )
+# 
+# 
+# Author : Valerio Tettamanti valerite@student.ethz.ch
 
+
+###########################################################################################
 
 # go on session -> set working directory -> choose directory 
 # activate library for ggplot and plyr; if you don't have it -> install.packages("ggplot2")
@@ -6,6 +21,9 @@
 
 library(ggplot2)
 library(plyr)
+
+
+start.time <- Sys.time()
 
 # Function for reading the files 
 files = list.files( pattern = "*.txt")
@@ -191,3 +209,6 @@ ggplot() + geom_line(data=df, aes(data_n, mean_freq)) +
 ggsave("mean_neurons_freq_core_3.png", plot = last_plot())
 
 
+end.time <- Sys.time()
+time.taken <- end.time - start.time
+time.taken
