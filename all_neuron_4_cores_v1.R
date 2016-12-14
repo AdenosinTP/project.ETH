@@ -4,14 +4,14 @@
 #                   in Dynap-se Neuromorphic chip's 256 neurons (of the four cores)    ///
 # 
 # 
-# This script can analyze the data extracted from the .aedat files recorded with
-# cAER, by using the python script found in the repository 
-# (https://github.com/AdenosinTP/project_ETH), and show the frequency of each 
-# neuron for an increasing current (in this case DC coarseValue was costant and
-# changes were in fineValue with the rest of the parameters unchanged from )
+#       This script can analyze the data extracted from the .aedat files recorded with
+#       cAER, by using the python script found in the repository 
+#       (https://github.com/AdenosinTP/project_ETH), and show the frequency of each 
+#       neuron for an increasing current (in this case DC coarseValue was costant and
+#       changes were in fineValue with the rest of the parameters unchanged from )
 # 
 # 
-# Author : Valerio Tettamanti valerite@student.ethz.ch
+#                   Author : Valerio Tettamanti valerite@student.ethz.ch
 
 
 ###########################################################################################
@@ -38,7 +38,7 @@ n = length(files)
 
 # ===========================================================================
 # ===========================================================================
-# //////////////////////////////   CHIP 2    ////////////////////////////////
+# //////////////////////////////   CHIP 1    ////////////////////////////////
 # ===========================================================================
 # ===========================================================================
 
@@ -220,6 +220,7 @@ ggplot(df, aes(Var2, value, group=factor(Var1))) + geom_line(aes(color=factor(Va
   labs(title = "Core 3") + theme(plot.title = element_text(hjust = 0.5, size=rel(2)))
 
 ggsave("all_neurons_freq_core_3.png", plot = last_plot())
+
 
 end.time <- Sys.time()
 time.taken <- end.time - start.time
