@@ -102,7 +102,8 @@ for (i in 1:5) {
     
     theme(legend.position="none") +
     labs(x="Synaptic Efficacy", y = "Count") +
-    labs(title = paste("Core 0 - ", df$freq[df$Var2==i], " Hz", sep="")) + theme(plot.title = element_text(hjust = 0.5, size=rel(2))) +
+    labs(title = paste("Core 0 - ", df$freq[df$Var2==i], " Hz", sep="")) + 
+    theme(axis.title=element_text(size=20), axis.text = element_text(size=15), plot.title = element_text(hjust = 0.5, size=25)) +
     annotation_custom(grob) + annotation_custom(grob2)
   
   ggsave(filename=paste("c0_synaptic_eff", i,".png",sep=""), plot = last_plot(), width=7, height=7)
@@ -191,7 +192,8 @@ for (i in 1:5) {
     
     theme(legend.position="none") +
     labs(x="Synaptic Efficacy", y = "Count") +
-    labs(title = paste("Core 1 - ", df$freq[df$Var2==i], " Hz", sep="")) + theme(plot.title = element_text(hjust = 0.5, size=rel(2))) +
+    labs(title = paste("Core 1 - ", df$freq[df$Var2==i], " Hz", sep="")) + 
+    theme(axis.title=element_text(size=20), axis.text = element_text(size=15), plot.title = element_text(hjust = 0.5, size=25)) +
     annotation_custom(grob) + annotation_custom(grob2)
   
   ggsave(filename=paste("c1_synaptic_eff", i,".png",sep=""), plot = last_plot(), width=7, height=7)
@@ -279,7 +281,8 @@ for (i in 1:5) {
     
     theme(legend.position="none") +
     labs(x="Synaptic Efficacy", y = "Count") +
-    labs(title = paste("Core 2 - ", df$freq[df$Var2==i], " Hz", sep="")) + theme(plot.title = element_text(hjust = 0.5, size=rel(2))) +
+    labs(title = paste("Core 2 - ", df$freq[df$Var2==i], " Hz", sep="")) + 
+    theme(axis.title=element_text(size=20), axis.text = element_text(size=15), plot.title = element_text(hjust = 0.5, size=25)) +
     annotation_custom(grob) + annotation_custom(grob2)
   
   ggsave(filename=paste("c2_synaptic_eff", i,".png",sep=""), plot = last_plot(), width=7, height=7)
@@ -365,11 +368,10 @@ for (i in 1:5) {
                linetype="1F")+
     geom_vline(data=subset(df, Var2==i), aes(xintercept=grp.mean-sd1),
                linetype="1F") +
-    
     theme(legend.position="none") +
     labs(x="Synaptic Efficacy", y = "Count") +
     labs(title = paste("Core 3 - ", df$freq[df$Var2==i], " Hz", sep="")) +
-    theme(plot.title = element_text(hjust = 0.5, size=rel(2))) +
+    theme(axis.title=element_text(size=20), axis.text = element_text(size=15), plot.title = element_text(hjust = 0.5, size=25)) +
     annotation_custom(grob) + annotation_custom(grob2)
   
   ggsave(filename=paste("c3_synaptic_eff", i,".png",sep=""), plot = last_plot(), width=7, height=7)

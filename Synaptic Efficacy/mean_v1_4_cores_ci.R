@@ -77,7 +77,9 @@ ggplot() +
   geom_errorbar(data=df, aes(data_n, ymin=lwr, ymax=upr), colour="black", width=5) +
   geom_point(data=df, aes(data_n, mean_freq), shape=21, size=2, fill="white") +
   labs(x="Stimulus freq [Hz]", y = "Spiking freq [Hz]") +
-  labs(title = "Core 0") + theme(plot.title = element_text(hjust = 0.5, size=rel(2)))
+  labs(title = "Core 0") +
+  theme(axis.title=element_text(size=20), axis.text = element_text(size=15), plot.title = element_text(hjust = 0.5, size=25))
+
 
 ggsave("c0_synaptic_eff_mean.png", plot = last_plot(), width=7, height=7)
 
@@ -145,7 +147,8 @@ ggplot() +
   geom_errorbar(data=df, aes(data_n, ymin=lwr, ymax=upr), colour="black", width=5) +
   geom_point(data=df, aes(data_n, mean_freq), shape=21, size=2, fill="white") +
   labs(x="Stimulus freq [Hz]", y = "Spiking freq [Hz]") +
-  labs(title = "Core 1") + theme(plot.title = element_text(hjust = 0.5, size=rel(2)))
+  labs(title = "Core 1") + 
+  theme(axis.title=element_text(size=20), axis.text = element_text(size=15), plot.title = element_text(hjust = 0.5, size=25))
 
 ggsave("c1_synaptic_eff_mean.png", plot = last_plot(), width=7, height=7)
 
@@ -211,7 +214,8 @@ ggplot() +
   geom_errorbar(data=df, aes(data_n, ymin=lwr, ymax=upr), colour="black", width=5) +
   geom_point(data=df, aes(data_n, mean_freq), shape=21, size=2, fill="white") +
   labs(x="Stimulus freq [Hz]", y = "Spiking freq [Hz]") +
-  labs(title = "Core 2") + theme(plot.title = element_text(hjust = 0.5, size=rel(2)))
+  labs(title = "Core 2") + 
+  theme(axis.title=element_text(size=20), axis.text = element_text(size=15), plot.title = element_text(hjust = 0.5, size=25))
 
 ggsave("c2_synaptic_eff_mean.png", plot = last_plot(), width=7, height=7)
 
@@ -279,7 +283,8 @@ ggplot() +
   geom_errorbar(data=df, aes(data_n, ymin=lwr, ymax=upr), colour="black", width=5) +
   geom_point(data=df, aes(data_n, mean_freq), shape=21, size=2, fill="white") +
   labs(x="Stimulus freq [Hz]", y = "Spiking freq [Hz]") +
-  labs(title = "Core 3") + theme(plot.title = element_text(hjust = 0.5, size=rel(2)))
+  labs(title = "Core 3") + 
+  theme(axis.title=element_text(size=20), axis.text = element_text(size=15), plot.title = element_text(hjust = 0.5, size=25))
 
 ggsave("c3_synaptic_eff_mean.png", plot = last_plot(), width=7, height=7)
 
