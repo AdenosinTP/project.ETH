@@ -42,21 +42,24 @@ frequencies = sapply(files, function(x) {
   freq = rep(NA, 256)
 
   for (i in 0:255) {
-  neuron_time =  file$time[file$core_id==0 & file$neuron_id==i]
-  spikes = length(neuron_time)
-  min = min(neuron_time)
-  max = max(neuron_time)
-  dtime = (max - min)/1000000
-  freq_single = spikes/(dtime)
-  freq[i+1] = freq_single 
+    neuron_time =  file$time[file$chip_id==1 & file$core_id==0 & file$neuron_id==i]
+    spikes = length(neuron_time)
+    min = min(neuron_time)
+    max = max(neuron_time)
+    dtime = (max - min)/1000000
+    single_freq = spikes/(dtime)
+      if (single_freq == 0) {
+        freq[i+1] = 0
+      } else {
+        freq[i+1] = single_freq   # exits the  frequency of neuron_id = i for the i neuron
+      }
   }
   
   return(freq)
-
   })
 
 # renaming the columns with the fineValues we used (31, 63, 95, ...)
-colnames(frequencies) = paste("",(1:8)*32-1, sep="")
+colnames(frequencies) = paste("",(1:5), sep="")
 
 
 df = melt(frequencies)
@@ -68,7 +71,7 @@ ggplot(df, aes(Var2, value, group=factor(Var1))) + geom_line(aes(color=factor(Va
   labs(x="fValue", y = "Frequency [Hz]") +
   labs(title = "Core 0") + theme(plot.title = element_text(hjust = 0.5, size=rel(2)))
 
-ggsave("all_neurons_freq_core_0.pdf", plot = last_plot())
+ggsave("all_neurons_freq_core_0.png", plot = last_plot())
 
 
 
